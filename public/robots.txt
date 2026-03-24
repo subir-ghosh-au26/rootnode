@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://rootnode.in/sitemap.xml
+Sitemap: https://rootnode.co.in/sitemap.xml
