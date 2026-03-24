@@ -15,7 +15,7 @@ const Contact = () => {
     // Submit to Formspree
     setStatus('loading');
 
-    fetch('https://formspree.io/f/[YOUR_FORMSPREE_ID]', {
+    fetch('https://formspree.io/f/mojkgrnk', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -28,20 +28,20 @@ const Contact = () => {
         message: formData.message
       })
     })
-    .then(response => {
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-      } else {
-        setStatus('error');
-      }
-    })
-    .catch(() => setStatus('error'))
-    .finally(() => {
-      setTimeout(() => {
-        if (status === 'success' || status === 'error') setStatus('');
-      }, 5000);
-    });
+      .then(response => {
+        if (response.ok) {
+          setStatus('success');
+          setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        } else {
+          setStatus('error');
+        }
+      })
+      .catch(() => setStatus('error'))
+      .finally(() => {
+        setTimeout(() => {
+          if (status === 'success' || status === 'error') setStatus('');
+        }, 5000);
+      });
   };
 
   const handleChange = (e) => {
