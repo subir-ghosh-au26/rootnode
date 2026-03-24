@@ -12,21 +12,36 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate
-    if (!formData.name || !formData.email || !formData.message) {
-      setStatus('error');
-      return;
-    }
+    // Submit to Formspree
+    setStatus('loading');
 
-    // Build WhatsApp message
-    const waMessage = `Hello Rootnode Technologies!%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0AService: ${formData.service}%0A%0AMessage: ${formData.message}`;
-
-    // Open WhatsApp (replace with actual number)
-    window.open(`https://wa.me/917001034964?text=${waMessage}`, '_blank');
-
-    setStatus('success');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    setTimeout(() => setStatus(''), 5000);
+    fetch('https://formspree.io/f/[YOUR_FORMSPREE_ID]', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    })
+    .catch(() => setStatus('error'))
+    .finally(() => {
+      setTimeout(() => {
+        if (status === 'success' || status === 'error') setStatus('');
+      }, 5000);
+    });
   };
 
   const handleChange = (e) => {
@@ -141,10 +156,11 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-4 bg-brand hover:bg-mid text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand/30 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                disabled={status === 'loading'}
+                className="w-full sm:w-auto px-8 py-4 bg-brand hover:bg-mid text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <HiPaperAirplane className="rotate-90" />
-                Send Message
+                <HiPaperAirplane className={`rotate-90 ${status === 'loading' ? 'animate-pulse' : ''}`} />
+                {status === 'loading' ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </motion.div>

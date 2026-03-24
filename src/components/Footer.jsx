@@ -97,7 +97,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-soft/30 text-xs">
-            © {new Date().getFullYear()} Rootnode Technologies. All rights reserved. Made with ❤️ in West Bengal.
+            © {new Date().getFullYear()} Rootnode Technologies. All rights reserved. Made with ❤️
           </p>
           <button
             onClick={scrollToTop}
