@@ -177,15 +177,15 @@ const Contact = () => {
               {
                 icon: <HiLocationMarker className="text-xl" />,
                 title: 'Our Office',
-                lines: ['West Bengal, India'],
+                lines: ['Birbhum, West Bengal, India'],
                 color: 'brand',
               },
               {
                 icon: <HiMail className="text-xl" />,
                 title: 'Email Us',
-                lines: ['[EMAIL_ADDRESS]', '[EMAIL_ADDRESS]'],
+                lines: ['support@rootnode.co.in'],
                 color: 'mid',
-                link: 'mailto:[EMAIL_ADDRESS]',
+                link: 'mailto:support@rootnode.co.in',
               },
               {
                 icon: <HiPhone className="text-xl" />,
