@@ -90,40 +90,7 @@ export default async function handler(req, res) {
               </p>
             </div>
           </div>
-        `
       });
-
-      // Auto WhatsApp message to visitor (if phone provided and WhatsApp API configured)
-      if (phone && process.env.WHATSAPP_TOKEN && process.env.WHATSAPP_PHONE_ID) {
-        const cleanPhone = phone.replace(/[^0-9]/g, '');
-        // Add India country code if not present
-        const fullPhone = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
-
-        try {
-          await fetch(
-            `https://graph.facebook.com/v21.0/${process.env.WHATSAPP_PHONE_ID}/messages`,
-            {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${process.env.WHATSAPP_TOKEN}`,
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                messaging_product: 'whatsapp',
-                to: fullPhone,
-                type: 'text',
-                text: {
-                  body: `Hi ${name}! 👋\n\nThank you for contacting *Rootnode Technologies*! ✅\n\nWe have received your inquiry${service ? ` regarding *${service}*` : ''} and our team will get back to you within *24 hours*.\n\nFeel free to reply here if you have any urgent questions.\n\n— Team Rootnode 🚀\nwww.rootnode.co.in`
-                }
-              }),
-            }
-          );
-        } catch (waError) {
-          // WhatsApp is optional — don't fail the whole request
-          console.error('WhatsApp error:', waError);
-        }
-      }
-
     } else if (type === 'chatbot') {
       // Chatbot transcript
       await transporter.sendMail({
