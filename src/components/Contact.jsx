@@ -182,9 +182,9 @@ const Contact = () => {
               {
                 icon: <HiMail className="text-xl" />,
                 title: 'Email Us',
-                lines: ['support@rootnode.co.in'],
+                lines: ['hello@rootnode.co.in'],
                 color: 'mid',
-                link: 'mailto:support@rootnode.co.in',
+                link: 'mailto:hello@rootnode.co.in',
               },
               {
                 icon: <HiPhone className="text-xl" />,
