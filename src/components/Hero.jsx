@@ -20,63 +20,63 @@ const Hero = () => {
         }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 text-left">
-          {/* Left: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="flex-1"
-          >
-            <h1 className="font-heading mb-6">
-              <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight">Rootnode</span>
-              <span className="block text-xl sm:text-2xl font-bold text-soft/40 tracking-[0.3em] uppercase mt-2">Technologies</span>
-            </h1>
-            
-            <div className="space-y-4 mb-10">
-              <p className="text-lg sm:text-xl text-soft/80 font-medium">
-                Web development · IT services · Digital products
-              </p>
-              <p className="text-xl sm:text-2xl text-accent font-semibold">
-                Rooted here. Connected everywhere.
-              </p>
-            </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="flex justify-center mb-8"
+        >
+          <Logo size={120} animate={true} />
+        </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="inline-flex items-center gap-2 px-10 py-4 bg-accent hover:bg-accent-dark text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-1 text-lg"
-              >
-                rootnode.in →
-              </a>
-            </motion.div>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 leading-tight">
+            <span className="block">Building Digital</span>
+            <span className="block bg-gradient-to-r from-soft via-accent to-soft bg-clip-text text-transparent">
+              Solutions
+            </span>
+          </h1>
+          <p className="text-lg sm:text-xl text-soft/70 max-w-2xl mx-auto mb-4 font-light">
+            From the Heart of Bengal
+          </p>
+          <p className="text-sm sm:text-base text-soft/50 max-w-xl mx-auto mb-10">
+            We craft exceptional websites, mobile apps & custom software that transform businesses. Your vision, our code.
+          </p>
+        </motion.div>
 
-          {/* Right: Logo/Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: 50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-            className="flex-shrink-0"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="group px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-1 flex items-center gap-2"
           >
-            <div className="relative">
-              {/* Decorative radial glows */}
-              <div className="absolute inset-0 bg-brand/30 rounded-full blur-[80px] animate-pulse" />
-              <div className="relative z-10">
-                <Logo size={window.innerWidth < 1024 ? 200 : 380} animate={true} />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            Start Your Project
+            <FiExternalLink className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a
+            href="#portfolio"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="px-8 py-4 border border-soft/30 text-soft hover:text-white hover:border-soft/60 font-semibold rounded-full transition-all duration-300 hover:-translate-y-1"
+          >
+            View Our Work
+          </a>
+        </motion.div>
 
         {/* Stats Bar */}
         <motion.div
