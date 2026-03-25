@@ -126,12 +126,11 @@ const Chatbot = () => {
       })
       .join('\n\n');
 
-    fetch('https://formspree.io/f/mojkgrnk', {
+    fetch('/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        _subject: `💬 New Chatbot Conversation — ${new Date().toLocaleDateString('en-IN')}`,
-        source: 'Chatbot Widget',
+        type: 'chatbot',
         total_messages: userMessages.length,
         conversation: transcript,
       }),

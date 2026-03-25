@@ -12,15 +12,16 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Submit to Formspree
+    // Submit to backend API
     setStatus('loading');
 
-    fetch('https://formspree.io/f/mojkgrnk', {
+    fetch('/api/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        type: 'contact',
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
