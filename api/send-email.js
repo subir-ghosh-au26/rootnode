@@ -90,6 +90,7 @@ export default async function handler(req, res) {
               </p>
             </div>
           </div>
+        `
       });
     } else if (type === 'chatbot') {
       // Chatbot transcript
