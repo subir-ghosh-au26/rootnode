@@ -33,6 +33,11 @@ const Contact = () => {
         if (response.ok) {
           setStatus('success');
           setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+          // Open WhatsApp confirmation message
+          const whatsappMsg = encodeURIComponent(
+            `Hi ${formData.name}! 👋\n\nThank you for contacting *Rootnode Technologies*! ✅\n\nWe have received your inquiry and our team will get back to you within *24 hours*.\n\nFeel free to reply here if you have any urgent questions.\n\n— Team Rootnode 🚀\nwww.rootnode.co.in`
+          );
+          window.open(`https://wa.me/${formData.phone.replace(/[^0-9]/g, '')}?text=${whatsappMsg}`, '_blank');
         } else {
           setStatus('error');
         }
