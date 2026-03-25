@@ -34,7 +34,7 @@ const KNOWLEDGE_BASE = [
   },
   {
     keywords: ['contact', 'reach', 'call', 'email', 'phone', 'whatsapp', 'talk'],
-    response: "You can reach us through:\n\n📧 **Email:** hello@rootnode.co.in\n📞 **Phone:** +91 9476148884\n💬 **WhatsApp:** +91 9476148884\n📍 **Location:** Birbhum, West Bengal, India\n\nOr scroll down to our Contact section to send a message directly!",
+    response: "You can reach us through:\n\n📧 **Email:** hello@rootnode.co.in\n📍 **Location:** Birbhum, West Bengal, India\n\nOr scroll down to our Contact section to send a message directly!",
   },
   {
     keywords: ['location', 'where', 'office', 'address', 'based', 'birbhum'],

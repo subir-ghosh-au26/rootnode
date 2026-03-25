@@ -187,20 +187,6 @@ const Contact = () => {
                 color: 'mid',
                 link: 'mailto:hello@rootnode.co.in',
               },
-              {
-                icon: <HiPhone className="text-xl" />,
-                title: 'Call Us',
-                lines: ['+91 9476148884'],
-                color: 'accent',
-                link: 'tel:+919476148884',
-              },
-              {
-                icon: <FaWhatsapp className="text-xl" />,
-                title: 'WhatsApp',
-                lines: ['+91 9476148884'],
-                color: 'accent',
-                link: 'https://wa.me/919476148884',
-              },
             ].map((item, i) => (
               <a
                 key={i}
