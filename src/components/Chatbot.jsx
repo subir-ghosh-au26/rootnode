@@ -34,7 +34,7 @@ const KNOWLEDGE_BASE = [
   },
   {
     keywords: ['contact', 'reach', 'call', 'email', 'phone', 'whatsapp', 'talk'],
-    response: "You can reach us through:\n\n📧 **Email:** hello@rootnode.co.in\n📞 **Phone:** +91 7001034964\n💬 **WhatsApp:** +91 7001034964\n📍 **Location:** Birbhum, West Bengal, India\n\nOr scroll down to our Contact section to send a message directly!",
+    response: "You can reach us through:\n\n📧 **Email:** hello@rootnode.co.in\n📞 **Phone:** +91 9476148884\n💬 **WhatsApp:** +91 9476148884\n📍 **Location:** Birbhum, West Bengal, India\n\nOr scroll down to our Contact section to send a message directly!",
   },
   {
     keywords: ['location', 'where', 'office', 'address', 'based', 'birbhum'],
@@ -66,7 +66,7 @@ const KNOWLEDGE_BASE = [
   },
 ];
 
-const DEFAULT_RESPONSE = "I appreciate your question! For detailed information, you can:\n\n📧 Email us at **hello@rootnode.co.in**\n📞 Call **+91 7001034964**\n💬 Or use our **Contact form** below\n\nOur team will get back to you within 24 hours!";
+const DEFAULT_RESPONSE = "I appreciate your question! For detailed information, you can:\n\n📧 Email us at **hello@rootnode.co.in**\n📞 Call **+91 9476148884**\n💬 Or use our **Contact form** below\n\nOur team will get back to you within 24 hours!";
 
 function getResponse(message) {
   const lowerMessage = message.toLowerCase();

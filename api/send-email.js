@@ -81,7 +81,7 @@ export default async function handler(req, res) {
                 In the meantime, feel free to reach us on WhatsApp for a quicker response:
               </p>
               <div style="text-align: center; margin: 24px 0;">
-                <a href="https://wa.me/917001034964" style="display: inline-block; background: #25d366; color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px;">💬 Chat on WhatsApp</a>
+                <a href="https://wa.me/919476148884" style="display: inline-block; background: #25d366; color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px;">💬 Chat on WhatsApp</a>
               </div>
               <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;">
               <p style="color: #94a3b8; font-size: 12px; margin: 0; text-align: center;">

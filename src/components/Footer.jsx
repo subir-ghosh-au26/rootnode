@@ -30,7 +30,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: <FaWhatsapp />, href: 'https://wa.me/917001034964', label: 'WhatsApp' },
+                { icon: <FaWhatsapp />, href: 'https://wa.me/919476148884', label: 'WhatsApp' },
                 { icon: <FaLinkedinIn />, href: '#', label: 'LinkedIn' },
                 { icon: <FaInstagram />, href: '#', label: 'Instagram' },
                 { icon: <FaFacebookF />, href: '#', label: 'Facebook' },

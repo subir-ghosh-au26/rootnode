@@ -190,16 +190,16 @@ const Contact = () => {
               {
                 icon: <HiPhone className="text-xl" />,
                 title: 'Call Us',
-                lines: ['+91 7001034964'],
+                lines: ['+91 9476148884'],
                 color: 'accent',
-                link: 'tel:+917001034964',
+                link: 'tel:+919476148884',
               },
               {
                 icon: <FaWhatsapp className="text-xl" />,
                 title: 'WhatsApp',
-                lines: ['+91 7001034964'],
+                lines: ['+91 9476148884'],
                 color: 'accent',
-                link: 'https://wa.me/917001034964',
+                link: 'https://wa.me/919476148884',
               },
             ].map((item, i) => (
               <a
@@ -227,7 +227,7 @@ const Contact = () => {
             <div className="bg-gradient-to-br from-brand to-mid rounded-2xl p-6 text-center">
               <p className="text-white/90 text-sm mb-4">Prefer a quick call? We'd love to hear from you!</p>
               <a
-                href="https://wa.me/917001034964?text=Hi%20Rootnode!%20I%20need%20a%20website."
+                href="https://wa.me/919476148884?text=Hi%20Rootnode!%20I%20need%20a%20website."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dark text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg text-sm"
