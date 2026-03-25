@@ -66,7 +66,7 @@ const KNOWLEDGE_BASE = [
   },
 ];
 
-const DEFAULT_RESPONSE = "I appreciate your question! For detailed information, you can:\n\n📧 Email us at **support@rootnode.co.in**\n📞 Call **+91 7001034964**\n💬 Or use our **Contact form** below\n\nOur team will get back to you within 24 hours!";
+const DEFAULT_RESPONSE = "I appreciate your question! For detailed information, you can:\n\n📧 Email us at **hello@rootnode.co.in**\n📞 Call **+91 7001034964**\n💬 Or use our **Contact form** below\n\nOur team will get back to you within 24 hours!";
 
 function getResponse(message) {
   const lowerMessage = message.toLowerCase();
@@ -92,6 +92,7 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const hasSentTranscript = useRef(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -106,6 +107,44 @@ const Chatbot = () => {
       inputRef.current.focus();
     }
   }, [isOpen]);
+
+  // Send conversation transcript to email via Formspree
+  const sendTranscript = (chatMessages) => {
+    const userMessages = chatMessages.filter(m => m.sender === 'user');
+    if (userMessages.length === 0 || hasSentTranscript.current) return;
+
+    hasSentTranscript.current = true;
+
+    const transcript = chatMessages
+      .filter(m => m.id !== 1) // skip welcome message
+      .map(m => {
+        const time = m.time.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+        const label = m.sender === 'user' ? '👤 Visitor' : '🤖 Bot';
+        // Strip markdown bold markers for clean email
+        const cleanText = m.text.replace(/\*\*(.*?)\*\*/g, '$1');
+        return `[${time}] ${label}: ${cleanText}`;
+      })
+      .join('\n\n');
+
+    fetch('https://formspree.io/f/mojkgrnk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        _subject: `💬 New Chatbot Conversation — ${new Date().toLocaleDateString('en-IN')}`,
+        source: 'Chatbot Widget',
+        total_messages: userMessages.length,
+        conversation: transcript,
+      }),
+    }).catch(() => {
+      // Silently fail — don't disrupt user experience
+      hasSentTranscript.current = false;
+    });
+  };
+
+  const handleClose = () => {
+    sendTranscript(messages);
+    setIsOpen(false);
+  };
 
   const handleSend = () => {
     if (!inputValue.trim()) return;
@@ -222,7 +261,7 @@ const Chatbot = () => {
                 </div>
               </div>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer"
                 aria-label="Close chat"
               >
@@ -242,8 +281,8 @@ const Chatbot = () => {
                 >
                   <div
                     className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm leading-relaxed ${msg.sender === 'user'
-                        ? 'bg-gradient-to-br from-brand to-mid text-white rounded-br-md'
-                        : 'bg-white text-night shadow-sm border border-brand/5 rounded-bl-md'
+                      ? 'bg-gradient-to-br from-brand to-mid text-white rounded-br-md'
+                      : 'bg-white text-night shadow-sm border border-brand/5 rounded-bl-md'
                       }`}
                   >
                     <div className="whitespace-pre-line" dangerouslySetInnerHTML={{
