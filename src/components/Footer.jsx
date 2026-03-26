@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-5">
               <Logo size={36} animate={false} />
               <div>
-                <div className="font-heading font-bold text-lg text-white">Rootnode</div>
+                <div className="font-heading font-bold text-lg text-white">Rootnode Technologies</div>
                 <div className="text-soft/60 text-[9px] font-medium leading-tight">Rooted here. Connected everywhere.</div>
               </div>
             </div>

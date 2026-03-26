@@ -45,7 +45,7 @@ const Navbar = () => {
           <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="flex items-center gap-3 group">
             <Logo size={40} animate={false} />
             <div className="flex flex-col">
-              <span className="text-white font-heading font-bold text-xl leading-tight tracking-tight">Rootnode</span>
+              <span className="text-white font-heading font-bold text-xl leading-tight tracking-tight">Rootnode Technologies</span>
               <span className="text-soft text-[9px] font-medium tracking-[0.05em] opacity-80">Rooted here. Connected everywhere.</span>
             </div>
           </a>
