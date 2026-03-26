@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { HiArrowDown } from 'react-icons/hi';
 import { FiExternalLink } from 'react-icons/fi';
 import Logo from './Logo';
